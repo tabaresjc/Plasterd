@@ -63,3 +63,9 @@ db.sqlite3
 
 # atom folder
 .ropeproject/
+
+# django setting files per environment
+newsreader/settings/*
+!newsreader/settings/base.py
+!newsreader/settings/__init__.py
+!newsreader/settings/*.txt

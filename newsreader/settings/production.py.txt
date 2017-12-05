@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+"""
+
+Django settings for production environment
+
+"""
+from base import *  # noqa

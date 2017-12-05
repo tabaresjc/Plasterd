@@ -2,8 +2,24 @@
 import os
 import sys
 
+ENV_CONFIGS = {
+    'prod': 'production',
+    'stag': 'staging',
+    'test': 'testing',
+    'dev': 'development'
+}
+
+
+def set_env(env="dev"):
+    """
+    setup local environment, env is in ['dev', 'stag', 'prod', ...]
+    """
+    setting_name = 'newsreader.settings.%s' % ENV_CONFIGS.get(env, 'dev')
+    os.environ['DJANGO_SETTINGS_MODULE'] = setting_name
+
+
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "newsreader.settings")
+    set_env()
     try:
         from django.core.management import execute_from_command_line
     except ImportError:
