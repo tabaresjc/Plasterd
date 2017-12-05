@@ -8,4 +8,5 @@ from django.shortcuts import render
 class NewsView(View):
 
     def get(self, request):
-        return HttpResponse('result')
+
+        return render(request, 'news/index.html')
