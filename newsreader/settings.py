@@ -72,11 +72,12 @@ WSGI_APPLICATION = 'newsreader.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+DATA_PATH = os.path.join(BASE_DIR, 'data')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(DATA_PATH, 'db.sqlite3'),
     }
 }
 

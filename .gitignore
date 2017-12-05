@@ -57,8 +57,9 @@ docs/_build/
 # PyBuilder
 target/
 
-# sqlite database
+# sqlite database & data related stuff
 db.sqlite3
+/data/
 
 # atom folder
 .ropeproject/
