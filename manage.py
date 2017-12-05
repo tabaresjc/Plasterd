@@ -2,24 +2,20 @@
 import os
 import sys
 
-ENV_CONFIGS = {
-    'prod': 'production',
-    'stag': 'staging',
-    'test': 'testing',
-    'dev': 'development'
-}
 
-
-def set_env(env="dev"):
+def set_env(env='development'):
     """
-    setup local environment, env is in ['dev', 'stag', 'prod', ...]
+    setup local environment, env is in ['development', 'testing', 'production']
     """
-    setting_name = 'newsreader.settings.%s' % ENV_CONFIGS.get(env, 'dev')
-    os.environ['DJANGO_SETTINGS_MODULE'] = setting_name
+    if not os.environ.get('DJANGO_SETTINGS_MODULE'):
+        setting_name = 'newsreader.settings.%s' % env
+        os.environ['DJANGO_SETTINGS_MODULE'] = setting_name
 
 
 if __name__ == "__main__":
-    set_env()
+    env = (['development'] + sys.argv[2:3]).pop()
+    set_env(env)
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError:

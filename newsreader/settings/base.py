@@ -122,6 +122,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 # Specific settings of the site
-SITE_NAME = 'Platerd'
+SITE_NAME = 'Plasterd'
+
+# Newsapi Key
+NEWS_API_URL = None
+NEWS_API_KEY = None
+NEWS_API_DEFAULT_SOURCE = None
