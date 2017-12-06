@@ -5,3 +5,8 @@ Django settings for production environment
 
 """
 from base import *  # noqa
+
+NEWS_API_URL = 'https://newsapi.org/v2/everything'
+NEWS_API_KEY = None
+NEWS_API_DEFAULT_SOURCE = None
+NEWS_API_LANG = 'en'

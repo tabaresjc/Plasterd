@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'news.apps.NewsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,3 +134,4 @@ SITE_NAME = 'Plasterd'
 NEWS_API_URL = None
 NEWS_API_KEY = None
 NEWS_API_DEFAULT_SOURCE = None
+NEWS_API_LANG = 'en'

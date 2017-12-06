@@ -25,30 +25,44 @@ Take a look at the folder `newsreader/settings`, there you can find a list of fi
 
 This file should inherit all settings from newsreader/settings/base.py, and override specifics settings when needed.
 
-There are two ways you can start the app for the inteded environment
-
-1. Via Django Command line
-
 ```bash
-$ python manage.py runserver ENV
-.
-Django version 1.11, using settings 'newsreader.settings.development'
-```
-
-`ENV` should be name of the file where your settings resides (development, testing or production). Also `ENV` can be left empty, in which case the app will fallback to **development**. 
-
-2. Via environment setting
-
-```bash
-$ export DJANGO_SETTINGS_MODULE=newsreader.settings.ENV
+$ export DJANGO_SETTINGS_MODULE=newsreader.settings.development
 $ python manage.py runserver
 .
+.
 Django version 1.11, using settings 'newsreader.settings.development'
 ```
 
-As before ENV can be development, testing or production
+Make sure to fill the following setting with the correct info
+
+```bash
+NEWS_API_URL = 'https://newsapi.org/v2/everything'
+NEWS_API_KEY = None
+NEWS_API_DEFAULT_SOURCE = 'bbc-news'
+```
 
 ### Setup database
 
 1. run `$ mkdir data`
 2. run `$ python manage.py migrate`
+
+### Initialize the database with some data
+
+```bash
+$ python manage.py fetchnews
+fetching page 1...
+fetching page 2...
+.
+.
+```
+
+### Start the application
+
+You may start the application with the following command
+
+```bash
+$ python manage.py runserver
+.
+.
+Django version 1.11, using settings 'newsreader.settings.development'
+```

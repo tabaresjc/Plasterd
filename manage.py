@@ -3,18 +3,17 @@ import os
 import sys
 
 
-def set_env(env='development'):
+def set_env():
     """
     setup local environment, env is in ['development', 'testing', 'production']
     """
     if not os.environ.get('DJANGO_SETTINGS_MODULE'):
-        setting_name = 'newsreader.settings.%s' % env
+        setting_name = 'newsreader.settings.development'
         os.environ['DJANGO_SETTINGS_MODULE'] = setting_name
 
 
 if __name__ == "__main__":
-    env = (['development'] + sys.argv[2:3]).pop()
-    set_env(env)
+    set_env()
 
     try:
         from django.core.management import execute_from_command_line
